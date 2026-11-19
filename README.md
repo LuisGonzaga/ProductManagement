@@ -101,13 +101,11 @@ dotnet test
 
 ---
 
-## Screenshots
+## Screenshot
 
-Add screenshots of your dashboard to a `docs/images/` folder and embed them here:
 
-```markdown
 ![Product Management Dashboard](./docs/images/dashboard.png)
-```
+
 
 ---
 
