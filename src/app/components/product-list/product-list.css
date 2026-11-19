@@ -1,0 +1,400 @@
+:host {
+  --paper: #eef0ef;
+  --surface: #ffffff;
+  --surface-soft: #f6f7f7;
+  --ink: #1b2430;
+  --steel: #5d6875;
+  --line: #dde1e4;
+  --line-strong: #c3c9ce;
+  --accent: #0b6b5c;
+  --accent-soft: #e3f1ee;
+  --alert: #b42318;
+  --alert-soft: #fdecea;
+  --warn: #9a5b00;
+  --warn-soft: #fff3da;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(27, 36, 48, 0.06), 0 8px 24px -12px rgba(27, 36, 48, 0.16);
+
+  display: block;
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+/* --- Container & typography ------------------------------------------- */
+.product-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px 64px;
+  font-family:
+    'Segoe UI Variable',
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    sans-serif;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+h2 {
+  margin: 0 0 28px;
+  font-size: 2rem;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+/* --- Add product panel ------------------------------------------------- */
+.add-product-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 28px 28px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+}
+
+.add-product-card h3 {
+  margin: 0 0 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.product-form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: flex-end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--steel);
+}
+
+.form-group input,
+.search-input {
+  padding: 11px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.98rem;
+  background: var(--surface);
+  color: var(--ink);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.form-group input::placeholder,
+.search-input::placeholder {
+  color: #8b95a0;
+}
+
+.form-group input:hover,
+.search-input:hover {
+  border-color: #9aa3ac;
+}
+
+.form-group input:focus,
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(11, 107, 92, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  align-items: flex-end;
+  flex: 0 0 auto;
+}
+
+.btn-save {
+  height: 46px;
+  padding: 0 26px;
+  border: none;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.btn-save:hover {
+  background: var(--accent);
+}
+
+.btn-save:active {
+  transform: translateY(1px);
+}
+
+/* --- Search & controls ------------------------------------------------- */
+.controls-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 16px;
+  box-shadow: 0 1px 2px rgba(27, 36, 48, 0.05);
+}
+
+.btn-refresh {
+  padding: 0 22px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.btn-refresh:hover {
+  background: var(--surface-soft);
+  border-color: var(--steel);
+}
+
+/* --- Data table -------------------------------------------------------- */
+.product-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.product-table th {
+  padding: 14px 20px;
+  background: var(--surface-soft);
+  border-bottom: 1px solid var(--line);
+  color: var(--steel);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.product-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+  color: var(--ink);
+  vertical-align: middle;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ID column reads as a reference code */
+.product-table td:first-child {
+  color: var(--steel);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* Numbers align right, actions sit at the end */
+.product-table th:nth-child(4),
+.product-table td:nth-child(4),
+.product-table th:nth-child(5),
+.product-table td:nth-child(5) {
+  text-align: right;
+}
+
+.product-table th:last-child,
+.product-table td:last-child {
+  text-align: right;
+}
+
+.product-table tbody tr {
+  transition: background-color 0.12s ease;
+}
+
+.product-table tbody tr:hover {
+  background: var(--surface-soft);
+}
+
+.product-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Rows with low stock get a marker on the left edge (modern browsers) */
+.product-table tbody tr:has(.low-stock) td:first-child {
+  box-shadow: inset 3px 0 0 var(--alert);
+}
+
+/* --- Stock badge ------------------------------------------------------- */
+.stock-badge {
+  display: inline-block;
+  min-width: 2.6em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.stock-badge.low-stock {
+  background: var(--alert-soft);
+  color: var(--alert);
+}
+
+/* --- Row actions ------------------------------------------------------- */
+.actions-cell {
+  white-space: nowrap;
+}
+
+.actions-cell .btn-sm + .btn-sm {
+  margin-left: 6px;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.12s ease,
+    border-color 0.12s ease,
+    color 0.12s ease;
+}
+
+.btn-inc {
+  background: var(--accent-soft);
+  border-color: #b9dcd5;
+  color: var(--accent);
+}
+
+.btn-inc:hover {
+  background: #cfe7e2;
+  border-color: var(--accent);
+}
+
+.btn-dec {
+  background: var(--surface);
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.btn-dec:hover:not(:disabled) {
+  background: var(--surface-soft);
+  border-color: var(--steel);
+}
+
+.btn-dec:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-del {
+  background: transparent;
+  border-color: transparent;
+  color: var(--alert);
+}
+
+.btn-del:hover {
+  background: var(--alert-soft);
+  border-color: #f3c1bb;
+}
+
+.no-data {
+  padding: 48px 20px !important;
+  text-align: center !important;
+  color: var(--steel);
+  font-style: normal;
+}
+
+/* --- Status & error messages ------------------------------------------ */
+.loading,
+.alert {
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.loading {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--steel);
+  text-align: center;
+}
+
+.alert.error {
+  background: var(--alert-soft);
+  border: 1px solid #f3c1bb;
+  border-left: 4px solid var(--alert);
+  color: var(--alert);
+}
+
+/* --- Keyboard focus ---------------------------------------------------- */
+.btn-save:focus-visible,
+.btn-refresh:focus-visible,
+.btn-sm:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- Small screens ----------------------------------------------------- */
+@media (max-width: 720px) {
+  .product-container {
+    padding: 28px 16px 48px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .controls-bar {
+    flex-direction: column;
+  }
+
+  .btn-refresh {
+    height: 44px;
+  }
+
+  .form-actions,
+  .btn-save {
+    width: 100%;
+  }
+
+  /* Let the table scroll sideways instead of squashing columns */
+  .product-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
