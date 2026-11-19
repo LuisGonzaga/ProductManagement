@@ -1,0 +1,50 @@
+@ProductManagement_HostAddress = http://localhost:5150
+@ProductId = 100000
+
+### Get all products
+GET {{ProductManagement_HostAddress}}/api/products
+Accept: application/json
+
+### Get a product by ID
+GET {{ProductManagement_HostAddress}}/api/products/{{ProductId}}
+Accept: application/json
+
+### Create a product
+POST {{ProductManagement_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse",
+  "description": "Ergonomic wireless mouse",
+  "price": 29.99,
+  "stock": 25
+}
+
+### Update a product
+PUT {{ProductManagement_HostAddress}}/api/products/{{ProductId}}
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse",
+  "description": "Updated description",
+  "price": 34.99,
+  "stock": 30
+}
+
+### Search products by name
+GET {{ProductManagement_HostAddress}}/api/products/search?name=mouse
+Accept: application/json
+
+### Filter products by stock range
+GET {{ProductManagement_HostAddress}}/api/products/stock-level?min=1&max=50
+Accept: application/json
+
+### Add stock
+POST {{ProductManagement_HostAddress}}/api/products/{{ProductId}}/add-to-stock/5
+
+### Decrement stock
+POST {{ProductManagement_HostAddress}}/api/products/{{ProductId}}/decrement-stock/2
+
+### Delete a product
+DELETE {{ProductManagement_HostAddress}}/api/products/{{ProductId}}
+
