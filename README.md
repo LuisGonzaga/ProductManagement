@@ -109,8 +109,3 @@ dotnet test
 
 ---
 
-## Quick Check Before Committing
-
-- Verify whether your `.csproj` lives directly inside `Backend/` or one subfolder deeper (e.g., `Backend/ProductManagement.Api/`), and adjust the `cd Backend` step if needed.
-- Confirm the port number in `Frontend/src/.../product.service.ts` matches what `dotnet run` outputs so anyone cloning the repository can run both applications right away.
-- Ensure the frontend `package.json` contains the `"start": "ng serve"` script so that `npm start` works correctly.
