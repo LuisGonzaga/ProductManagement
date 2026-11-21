@@ -10,6 +10,7 @@ A responsive full-stack product management dashboard built with **Angular** (Sta
 ProductManagement/
 ├── Backend/        # ASP.NET Core (.NET 10) Web API, EF Core (Code-First), SQL Server LocalDB & Integration Tests
 ├── Frontend/       # Angular SPA (Standalone Components, Signals, HttpClient)
+├── docs/images     # README image
 └── README.md
 ```
 
